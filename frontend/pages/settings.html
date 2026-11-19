@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Somnia — ⚙️ Налаштування</title>
+    <script>
+      document.documentElement.dataset.theme =
+        localStorage.getItem("theme") || "light";
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/forms.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <span class="sidebar-moon">🌙</span>
+          <div>
+            <h2>SOMNIA</h2>
+            <p>TRACKER</p>
+          </div>
+        </div>
+        <nav>
+          <a href="../index.html">🏠 Головна</a>
+          <a href="./calendar.html">📅 Календар</a>
+          <a href="./analytics.html">📊 Статистика</a>
+          <a href="./goals.html">🎯 Цілі</a>
+          <a href="./dreams.html">📝 Нотатки</a>
+          <a href="./history.html">📖 Історія</a>
+          <a href="./settings.html" class="active">⚙️ Налаштування</a>
+          <a href="./profile.html">👤 Профіль</a>
+        </nav>
+      </aside>
+      <div class="overlay" id="overlay"></div>
+      <div class="page">
+        <header class="header">
+          <button class="menu-button" aria-label="Меню">✨</button>
+          <div class="logo">
+            <h1>SOMNIA</h1>
+            <p>TRACKER</p>
+          </div>
+          <a
+            href="./profile.html"
+            class="profile-button"
+            style="display: flex; align-items: center; justify-content: center"
+            >👩</a
+          >
+        </header>
+        <main>
+          <div class="page-title">
+            <h2>⚙️ Налаштування</h2>
+            <p>Зроби Somnia зручною для себе</p>
+          </div>
+
+          <div class="card">
+            <h3>Профіль</h3>
+            <div class="field">
+              <label for="nameInput">Ім'я</label>
+              <input
+                type="text"
+                id="nameInput"
+                maxlength="30"
+                placeholder="Як тебе звати?"
+              />
+            </div>
+            <button type="button" class="btn" id="saveName">
+              Зберегти ім'я
+            </button>
+          </div>
+          <div class="card">
+              <h3>Аватар</h3>
+              <div
+                class="moods"
+                id="avatarPicker"
+                style="flex-wrap: wrap"
+              ></div>
+          </div>
+          <div class="card">
+            <h3>Нагадування</h3>
+            <div class="row">
+              <div>
+                Нагадувати про сон<small>Сповіщення перед відбоєм</small>
+              </div>
+              <label class="switch"
+                ><input
+                  type="checkbox"
+                  id="reminderToggle"
+                  checked /><span></span
+              ></label>
+            </div>
+            <div class="row">
+              <div>Час відбою<small>Нагадаємо за 30 хвилин до цього часу</small></div>
+              <input type="time" id="reminderTime" value="22:00" />
+            </div>
+          </div>
+          <div class="card">
+            <h3>Вигляд</h3>
+            <div class="row">
+              <div>Темна тема</div>
+              <label class="switch"
+                ><input type="checkbox" id="darkToggle" /><span></span
+              ></label>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Дані</h3>
+            <div class="row">
+              <div>
+                Експорт записів<small>Завантажити всі записи файлом</small>
+              </div>
+              <button type="button" class="btn soft" id="exportBtn">
+                Експорт
+              </button>
+            </div>
+            <div class="row">
+              <div>
+                Видалити всі дані<small>Цю дію не можна скасувати</small>
+              </div>
+              <button type="button" class="btn danger" id="deleteAllBtn">
+                Видалити
+              </button>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <nav class="bottom-nav">
+      <a href="../index.html"><span>🏠</span>Головна</a>
+      <a href="./calendar.html"><span>📅</span>Календар</a>
+      <button type="button" class="plus">➕</button>
+      <a href="./analytics.html"><span>📊</span>Статистика</a>
+      <a href="./settings.html" class="active"><span>⚙️</span>Налаштування</a>
+    </nav>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/settings.js"></script>
+  </body>
+</html>

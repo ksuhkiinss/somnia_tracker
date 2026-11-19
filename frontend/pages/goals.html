@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Somnia — 🎯 Цілі</title>
+    <script>
+      document.documentElement.dataset.theme =
+        localStorage.getItem("theme") || "light";
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/forms.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <span class="sidebar-moon">🌙</span>
+          <div>
+            <h2>SOMNIA</h2>
+            <p>TRACKER</p>
+          </div>
+        </div>
+        <nav>
+          <a href="../index.html">🏠 Головна</a>
+          <a href="./calendar.html">📅 Календар</a>
+          <a href="./analytics.html">📊 Статистика</a>
+          <a href="./goals.html" class="active">🎯 Цілі</a>
+          <a href="./dreams.html">📝 Нотатки</a>
+          <a href="./history.html">📖 Історія</a>
+          <a href="./settings.html">⚙️ Налаштування</a>
+          <a href="./profile.html">👤 Профіль</a>
+        </nav>
+      </aside>
+      <div class="overlay" id="overlay"></div>
+      <div class="page">
+        <header class="header">
+          <button class="menu-button" aria-label="Меню">✨</button>
+          <div class="logo">
+            <h1>SOMNIA</h1>
+            <p>TRACKER</p>
+          </div>
+          <a
+            href="./profile.html"
+            class="profile-button"
+            style="display: flex; align-items: center; justify-content: center"
+            >👩</a
+          >
+        </header>
+        <main>
+          <div class="page-title">
+            <h2>🎯 Цілі</h2>
+            <p>Скільки спати, щоб почуватись добре</p>
+          </div>
+
+          <div class="grid-2">
+            <div class="card goal-big">
+              <h3>Щоденна ціль</h3>
+              <div class="goal-circle" id="goalCircle">8 год.</div>
+              <span class="badge" id="goalBadge">✅ Ціль виконана</span>
+              <div class="stepper">
+                <button type="button" id="goalMinus" aria-label="Менше">
+                  −
+                </button>
+                <strong id="goalInput">8 год.</strong>
+                <button type="button" id="goalPlus" aria-label="Більше">
+                  +
+                </button>
+              </div>
+              <button type="button" class="btn" id="saveGoal">
+                Зберегти ціль
+              </button>
+            </div>
+            <div>
+              <div class="card">
+                <h3>Цей тиждень</h3>
+                <!-- Дні малює js/goals.js -->
+                <div class="week-dots" id="weekDots"></div>
+              </div>
+              <div class="card">
+                <h3>🔥 Серія</h3>
+                <div class="big-num" id="streakValue">0 днів</div>
+                <p class="muted" id="streakNote">
+                  поспіль з виконаною ціллю. Рекорд: 0 днів.
+                </p>
+              </div>
+              <div class="card">
+                <h3>⏰ Час відбою</h3>
+                <p class="muted">Нагадаємо за 30 хвилин до сну</p>
+                <div class="big-num" id="bedtimeValue">22:30</div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <nav class="bottom-nav">
+      <a href="../index.html"><span>🏠</span>Головна</a>
+      <a href="./calendar.html"><span>📅</span>Календар</a>
+      <button type="button" class="plus">➕</button>
+      <a href="./analytics.html"><span>📊</span>Статистика</a>
+      <a href="./settings.html"><span>⚙️</span>Налаштування</a>
+    </nav>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/goals.js"></script>
+  </body>
+</html>

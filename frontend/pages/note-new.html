@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Somnia — Нова нотатка</title>
+    <script>
+      document.documentElement.dataset.theme =
+        localStorage.getItem("theme") || "light";
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/forms.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <span class="sidebar-moon">🌙</span>
+          <div>
+            <h2>SOMNIA</h2>
+            <p>TRACKER</p>
+          </div>
+        </div>
+        <nav>
+          <a href="../index.html">🏠 Головна</a>
+          <a href="./calendar.html">📅 Календар</a>
+          <a href="./analytics.html">📊 Статистика</a>
+          <a href="./goals.html">🎯 Цілі</a>
+          <a href="./dreams.html" class="active">📝 Нотатки</a>
+          <a href="./history.html">📖 Історія</a>
+          <a href="./settings.html">⚙️ Налаштування</a>
+          <a href="./profile.html">👤 Профіль</a>
+        </nav>
+      </aside>
+      <div class="overlay" id="overlay"></div>
+      <div class="page">
+        <header class="header">
+          <button class="menu-button" aria-label="Меню">✨</button>
+          <div class="logo">
+            <h1>SOMNIA</h1>
+            <p>TRACKER</p>
+          </div>
+          <a
+            href="./profile.html"
+            class="profile-button"
+            style="display: flex; align-items: center; justify-content: center"
+            >👩</a
+          >
+        </header>
+        <main>
+          <div class="page-title">
+            <h2>📝 Нова нотатка</h2>
+            <p>Запиши сон або думку про свій відпочинок</p>
+          </div>
+          <div class="card">
+            <form id="noteForm" novalidate>
+              <div class="form-error" id="formError" hidden>
+                Тут з'явиться загальна помилка
+              </div>
+              <div class="field" id="noteDateField">
+                <label for="noteDate">Дата</label>
+                <input type="date" id="noteDate" name="date" placeholder="" />
+                <p class="error-text" id="noteDateError" hidden>Обери дату</p>
+              </div>
+              <div id="sleepTimes" hidden>
+                <p class="muted" style="margin-bottom: 10px">
+                  За цю дату сну немає. Вкажи час, і запис створиться разом з
+                  нотаткою.
+                </p>
+                <div class="field">
+                  <label for="noteStart">Початок сну</label
+                  ><input type="time" id="noteStart" />
+                </div>
+                <div class="field">
+                  <label for="noteEnd">Кінець сну</label
+                  ><input type="time" id="noteEnd" />
+                </div>
+              </div>
+
+              <div class="field">
+                <label>Оцінка сну</label>
+                <div class="stars" id="noteRating">
+                  <span data-rating="1">⭐</span><span data-rating="2">⭐</span
+                  ><span data-rating="3">⭐</span><span data-rating="4">⭐</span
+                  ><span data-rating="5">⭐</span>
+                </div>
+              </div>
+              <div class="field">
+                <label>Самопочуття</label>
+                <div class="moods" id="noteMoods">
+                  <button type="button" data-mood="😊">😊</button
+                  ><button type="button" data-mood="😄">😄</button
+                  ><button type="button" data-mood="😐">😐</button
+                  ><button type="button" data-mood="😴">😴</button
+                  ><button type="button" data-mood="😣">😣</button>
+                </div>
+              </div>
+              <div class="field" id="dreamField">
+                <label for="dream">💭 Що снилося</label
+                ><textarea
+                  id="dream"
+                  name="dream"
+                  placeholder="Опиши свій сон"
+                ></textarea>
+              </div>
+              <div class="field" id="noteTextField">
+                <label for="noteText">📝 Нотатка</label
+                ><textarea
+                  id="noteText"
+                  name="note"
+                  placeholder="Думки про свій сон"
+                ></textarea>
+                <p class="error-text" id="noteTextError" hidden>
+                  Напиши хоча б кілька слів
+                </p>
+              </div>
+              <div class="form-actions">
+                <a href="./dreams.html" class="cancel">Скасувати</a
+                ><button type="submit" class="submit" id="submitBtn">
+                  Зберегти
+                </button>
+              </div>
+            </form>
+          </div>
+        </main>
+      </div>
+    </div>
+    <div class="toast" id="toast"></div>
+    <nav class="bottom-nav">
+      <a href="../index.html"><span>🏠</span>Головна</a>
+      <a href="./calendar.html"><span>📅</span>Календар</a>
+      <button type="button" class="plus">➕</button>
+      <a href="./analytics.html"><span>📊</span>Статистика</a>
+      <a href="./settings.html"><span>⚙️</span>Налаштування</a>
+    </nav>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/note-new.js"></script>
+  </body>
+</html>

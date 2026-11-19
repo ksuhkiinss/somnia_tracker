@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Somnia — 📊 Статистика</title>
+    <script>
+      document.documentElement.dataset.theme =
+        localStorage.getItem("theme") || "light";
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/forms.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <span class="sidebar-moon">🌙</span>
+          <div>
+            <h2>SOMNIA</h2>
+            <p>TRACKER</p>
+          </div>
+        </div>
+        <nav>
+          <a href="../index.html">🏠 Головна</a>
+          <a href="./calendar.html">📅 Календар</a>
+          <a href="./analytics.html" class="active">📊 Статистика</a>
+          <a href="./goals.html">🎯 Цілі</a>
+          <a href="./dreams.html">📝 Нотатки</a>
+          <a href="./history.html">📖 Історія</a>
+          <a href="./settings.html">⚙️ Налаштування</a>
+          <a href="./profile.html">👤 Профіль</a>
+        </nav>
+      </aside>
+      <div class="overlay" id="overlay"></div>
+      <div class="page">
+        <header class="header">
+          <button class="menu-button" aria-label="Меню">✨</button>
+          <div class="logo">
+            <h1>SOMNIA</h1>
+            <p>TRACKER</p>
+          </div>
+          <a
+            href="./profile.html"
+            class="profile-button"
+            style="display: flex; align-items: center; justify-content: center"
+            >👩</a
+          >
+        </header>
+        <main>
+          <div class="page-title">
+            <h2>📊 Статистика</h2>
+            <p id="periodNote">Твій сон за останній тиждень</p>
+          </div>
+
+          <div class="moods" id="periodSwitch" style="margin-bottom: 16px">
+            <button type="button" data-period="7" class="active">7 днів</button>
+            <button type="button" data-period="30">30 днів</button>
+          </div>
+
+          <div class="grid-3 keep" style="margin-bottom: 16px">
+            <div class="card" style="margin: 0; text-align: center">
+              <p class="muted">Середній сон</p>
+              <div class="big-num" id="avgSleep">8:02</div>
+            </div>
+            <div class="card" style="margin: 0; text-align: center">
+              <p class="muted">Найкраща ніч</p>
+              <div class="big-num" id="bestNight">9:06</div>
+            </div>
+            <div class="card" style="margin: 0; text-align: center">
+              <p class="muted">Днів з ціллю</p>
+              <div class="big-num" id="goalDays">4/7</div>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Тривалість сну, год.</h3>
+            <div class="bars" id="barsChart">
+              <div class="bar">
+                <span>7.5</span>
+                <div class="low" style="height: 75%"></div>
+                Пн
+              </div>
+              <div class="bar">
+                <span>8.8</span>
+                <div class="" style="height: 88%"></div>
+                Вт
+              </div>
+              <div class="bar">
+                <span>6.2</span>
+                <div class="low" style="height: 62%"></div>
+                Ср
+              </div>
+              <div class="bar">
+                <span>8.7</span>
+                <div class="" style="height: 87%"></div>
+                Чт
+              </div>
+              <div class="bar">
+                <span>7.9</span>
+                <div class="low" style="height: 79%"></div>
+                Пт
+              </div>
+              <div class="bar">
+                <span>9.1</span>
+                <div class="" style="height: 91%"></div>
+                Сб
+              </div>
+              <div class="bar">
+                <span>8.0</span>
+                <div class="" style="height: 80%"></div>
+                Нд
+              </div>
+            </div>
+            <p class="goal-line" id="goalNote">Світлі стовпчики — менше за ціль.</p>
+          </div>
+          <div class="card">
+            <h3>Оцінки сну за місяць</h3>
+            <div id="ratingsChart">
+              <div class="dist">
+                <span>⭐⭐⭐⭐⭐</span>
+                <div class="track"><b style="width: 60%"></b></div>
+                <span>12</span>
+              </div>
+              <div class="dist">
+                <span>⭐⭐⭐⭐</span>
+                <div class="track"><b style="width: 25%"></b></div>
+                <span>5</span>
+              </div>
+              <div class="dist">
+                <span>⭐⭐⭐</span>
+                <div class="track"><b style="width: 10%"></b></div>
+                <span>2</span>
+              </div>
+              <div class="dist">
+                <span>⭐⭐</span>
+                <div class="track"><b style="width: 5%"></b></div>
+                <span>1</span>
+              </div>
+              <div class="dist">
+                <span>⭐</span>
+                <div class="track"><b style="width: 2%"></b></div>
+                <span>0</span>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <nav class="bottom-nav">
+      <a href="../index.html"><span>🏠</span>Головна</a>
+      <a href="./calendar.html"><span>📅</span>Календар</a>
+      <button type="button" class="plus">➕</button>
+      <a href="./analytics.html" class="active"><span>📊</span>Статистика</a>
+      <a href="./settings.html"><span>⚙️</span>Налаштування</a>
+    </nav>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/analytics.js"></script>
+  </body>
+</html>

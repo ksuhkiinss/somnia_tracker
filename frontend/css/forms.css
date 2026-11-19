@@ -1,0 +1,241 @@
+/* Форми, помилки, повідомлення. Підключається після style.css (і pages.css) */
+
+/* Сторінки входу / реєстрації */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+.auth-logo {
+  text-align: center;
+  margin-bottom: 18px;
+}
+.auth-logo .moon {
+  font-size: 54px;
+  display: block;
+}
+.auth-logo h1 {
+  color: var(--purple);
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+.auth-logo p {
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 4px;
+}
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px 24px;
+}
+.auth-card h2 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.auth-card > p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+.auth-switch {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.auth-switch a,
+.link {
+  color: var(--purple-dark);
+  font-weight: 700;
+}
+.auth-switch a:hover,
+.link:hover {
+  text-decoration: underline;
+}
+
+/* Поля */
+.field {
+  margin-bottom: 14px;
+  position: relative;
+}
+.field label {
+  display: block;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--purple-line);
+  border-radius: 14px;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--text);
+  background: var(--input-bg);
+}
+.field textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  outline: 2px solid var(--purple);
+  border-color: var(--purple);
+}
+.field .eye {
+  position: absolute;
+  right: 8px;
+  bottom: 6px;
+  background: none;
+  font-size: 18px;
+  padding: 6px;
+}
+.field .hint {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* Стан помилки: JS додає клас .error до .field і прибирає атрибут hidden з .error-text */
+.field.error input,
+.field.error textarea {
+  border-color: #e5736f;
+  background: var(--error-bg);
+}
+.error-text {
+  color: #c0453f;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+.error-text[hidden] {
+  display: none;
+}
+.form-error {
+  background: var(--danger-bg);
+  color: #c0453f;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.form-error[hidden] {
+  display: none;
+}
+
+/* Кнопка відправки */
+.submit {
+  width: 100%;
+  background: linear-gradient(90deg, #a58be0, #7a5cc0);
+  color: #fff;
+  padding: 14px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0 8px 18px rgba(122, 92, 192, 0.3);
+}
+.submit:hover {
+  filter: brightness(1.06);
+}
+.submit:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.form-actions {
+  display: flex;
+  gap: 10px;
+}
+.form-actions .submit {
+  flex: 2;
+}
+.form-actions .cancel {
+  flex: 1;
+  text-align: center;
+  background: var(--purple-soft);
+  color: var(--purple-dark);
+  border-radius: 14px;
+  padding: 14px;
+  font-weight: 700;
+}
+
+/* Вибір оцінки й самопочуття всередині форми */
+.field .stars span {
+  font-size: 30px;
+}
+
+/* Повідомлення (toast). JS додає клас .show */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 100px;
+  transform: translate(-50%, 20px);
+  background: #6a4fa8;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s;
+  z-index: 200;
+}
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+.toast.error {
+  background: #c0453f;
+}
+
+/* Завантаження */
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid var(--purple-line);
+  border-top-color: var(--purple);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 20px auto;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.loading-text {
+  text-align: center;
+  color: var(--muted);
+}
+
+/* Порожній стан (коли ще немає записів) */
+.empty-state {
+  text-align: center;
+  padding: 36px 16px;
+}
+.empty-state .big {
+  font-size: 60px;
+}
+.empty-state h3 {
+  margin: 8px 0 4px;
+}
+.empty-state p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 16px;
+}

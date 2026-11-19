@@ -1,0 +1,464 @@
+/* Підключається ПІСЛЯ style.css на всіх сторінках, крім головної */
+
+.page-title {
+  margin-bottom: 16px;
+}
+.page-title h2 {
+  font-size: 24px;
+  font-weight: 800;
+}
+.page-title p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.muted {
+  color: var(--muted);
+  font-size: 14px;
+}
+.btn {
+  display: inline-block;
+  background: var(--purple);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 14px;
+}
+.btn.soft {
+  background: var(--purple-soft);
+  color: var(--purple-dark);
+}
+.big-num {
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--purple-dark);
+}
+
+/* Календар */
+.cal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.cal-head h3 {
+  margin: 0;
+}
+.cal-head button {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--purple-soft);
+  color: var(--purple-dark);
+  font-size: 20px;
+}
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  text-align: center;
+}
+.cal-grid .wd {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 0;
+}
+.day {
+  aspect-ratio: 1;
+  border-radius: 14px;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  gap: 2px;
+}
+.day.empty {
+  background: none;
+}
+.day.today {
+  outline: 2px solid var(--purple);
+}
+.day.selected {
+  background: var(--purple);
+  color: #fff;
+}
+.day i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--purple-line);
+}
+.day i.good {
+  background: #4caf6a;
+}
+.day i.mid {
+  background: var(--star);
+}
+.day i.bad {
+  background: #e5736f;
+}
+.legend {
+  display: flex;
+  gap: 16px;
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--muted);
+  flex-wrap: wrap;
+}
+.legend i {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+/* Аналітика */
+.bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+  height: 180px;
+}
+.bar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  font-size: 12px;
+  color: var(--muted);
+  gap: 6px;
+}
+.bar div {
+  width: 100%;
+  max-width: 40px;
+  border-radius: 10px 10px 4px 4px;
+  background: linear-gradient(180deg, #a58be0, #7a5cc0);
+}
+.bar div.low {
+  background: var(--low-bar);
+}
+.goal-line {
+  border-top: 2px dashed var(--purple-line);
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+.dist {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+.dist span:first-child {
+  width: 100px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  letter-spacing: 1px;
+}
+.dist span:last-child {
+  width: 28px;
+  flex-shrink: 0;
+  text-align: right;
+  font-weight: 700;
+}
+.dist .track {
+  flex: 1;
+  height: 10px;
+  border-radius: 6px;
+  background: var(--purple-soft);
+  overflow: hidden;
+}
+.dist .track b {
+  display: block;
+  height: 100%;
+  background: var(--purple);
+  border-radius: 6px;
+}
+
+/* Цілі */
+.goal-big {
+  text-align: center;
+}
+.goal-big .goal-circle {
+  width: 170px;
+  height: 170px;
+  margin: 0 auto 12px;
+  font-size: 32px;
+}
+.stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 14px 0;
+}
+.stepper button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--purple-soft);
+  color: var(--purple-dark);
+  font-size: 22px;
+  font-weight: 800;
+}
+.stepper strong {
+  font-size: 24px;
+  min-width: 90px;
+}
+.week-dots {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+}
+.week-dots div span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--purple-soft);
+  margin-bottom: 4px;
+  font-size: 16px;
+}
+.week-dots .ok span {
+  background: var(--green-bg);
+}
+
+/* Нотатки / історія: списки */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.item {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.item .ico {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--purple-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+.item .body {
+  flex: 1;
+  min-width: 0;
+}
+.item .body b {
+  display: block;
+}
+.item .body p {
+  color: var(--muted);
+  font-size: 14px;
+}
+.item .side {
+  text-align: right;
+  font-size: 14px;
+}
+.item .edit {
+  background: var(--purple-soft);
+  color: var(--purple-dark);
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-weight: 700;
+  font-size: 13px;
+}
+.search {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 1.5px solid var(--purple-line);
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--text);
+  margin-bottom: 16px;
+  background: var(--card);
+}
+.search:focus {
+  outline: 2px solid var(--purple);
+}
+
+/* Налаштування */
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--purple-line);
+}
+.row:last-child {
+  border-bottom: none;
+}
+.row small {
+  display: block;
+  color: var(--muted);
+}
+.row input[type="time"],
+.row select {
+  padding: 8px 10px;
+  border: 1.5px solid var(--purple-line);
+  border-radius: 10px;
+  font-family: inherit;
+  color: var(--text);
+  background: var(--input-bg);
+}
+.switch {
+  position: relative;
+  width: 48px;
+  height: 28px;
+  flex-shrink: 0;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.switch span {
+  position: absolute;
+  inset: 0;
+  background: var(--purple-line);
+  border-radius: 20px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.switch span::before {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  left: 3px;
+  top: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+.switch input:checked + span {
+  background: var(--purple);
+}
+.switch input:checked + span::before {
+  transform: translateX(20px);
+}
+.danger {
+  background: var(--danger-bg);
+  color: #c0453f;
+}
+
+/* Профіль */
+.profile-top {
+  text-align: center;
+}
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--purple-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52px;
+  margin: 0 auto 10px;
+  border: 3px solid var(--purple);
+}
+.badges {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  text-align: center;
+}
+.badge-item {
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 14px 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.badge-item span {
+  display: block;
+  font-size: 30px;
+}
+.badge-item.locked {
+  opacity: 0.4;
+}
+
+@media (max-width: 700px) {
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+  .grid-3.keep {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .page-title h2 {
+    font-size: 20px;
+  }
+  .badges {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .item {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  .dist span:first-child {
+    width: 90px;
+    font-size: 12px;
+  }
+}
+
+.item .side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+.item .edit.danger {
+  background: var(--danger-bg);
+  color: #c0453f;
+}

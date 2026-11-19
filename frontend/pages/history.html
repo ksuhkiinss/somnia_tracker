@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Somnia — 📖 Історія сну</title>
+    <script>
+      document.documentElement.dataset.theme =
+        localStorage.getItem("theme") || "light";
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/forms.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <span class="sidebar-moon">🌙</span>
+          <div>
+            <h2>SOMNIA</h2>
+            <p>TRACKER</p>
+          </div>
+        </div>
+        <nav>
+          <a href="../index.html">🏠 Головна</a>
+          <a href="./calendar.html">📅 Календар</a>
+          <a href="./analytics.html">📊 Статистика</a>
+          <a href="./goals.html">🎯 Цілі</a>
+          <a href="./dreams.html">📝 Нотатки</a>
+          <a href="./history.html" class="active">📖 Історія</a>
+          <a href="./settings.html">⚙️ Налаштування</a>
+          <a href="./profile.html">👤 Профіль</a>
+        </nav>
+      </aside>
+      <div class="overlay" id="overlay"></div>
+      <div class="page">
+        <header class="header">
+          <button class="menu-button" aria-label="Меню">✨</button>
+          <div class="logo">
+            <h1>SOMNIA</h1>
+            <p>TRACKER</p>
+          </div>
+          <a
+            href="./profile.html"
+            class="profile-button"
+            style="display: flex; align-items: center; justify-content: center"
+            >👩</a
+          >
+        </header>
+        <main>
+          <div class="page-title">
+            <h2>📖 Історія сну</h2>
+            <p>Усі твої записи про сон</p>
+          </div>
+          <!-- Записи малює js/history.js -->
+          <div class="list" id="historyList"></div>
+        </main>
+      </div>
+    </div>
+    <nav class="bottom-nav">
+      <a href="../index.html"><span>🏠</span>Головна</a>
+      <a href="./calendar.html"><span>📅</span>Календар</a>
+      <button type="button" class="plus">➕</button>
+      <a href="./analytics.html"><span>📊</span>Статистика</a>
+      <a href="./settings.html"><span>⚙️</span>Налаштування</a>
+    </nav>
+    <div class="modal" id="editModal">
+      <div class="modal-content">
+        <h2>✏️ Редагувати запис</h2>
+        <label for="editDate">Дата</label>
+        <input type="date" id="editDate" />
+        <label for="editStart">Початок сну</label>
+        <input type="time" id="editStart" />
+        <label for="editEnd">Кінець сну</label>
+        <input type="time" id="editEnd" />
+        <div class="rating-select">
+          <p>Оцініть сон</p>
+          <div class="stars" id="editRating">
+            <span data-rating="1">⭐</span><span data-rating="2">⭐</span
+            ><span data-rating="3">⭐</span><span data-rating="4">⭐</span
+            ><span data-rating="5">⭐</span>
+          </div>
+        </div>
+        <div class="mood-select">
+          <p>Самопочуття</p>
+          <div class="moods" id="editMoods">
+            <button type="button" data-mood="😊">😊</button>
+            <button type="button" data-mood="😄">😄</button>
+            <button type="button" data-mood="😐">😐</button>
+            <button type="button" data-mood="😴">😴</button>
+            <button type="button" data-mood="😣">😣</button>
+          </div>
+        </div>
+        <textarea id="editDream" rows="3" placeholder="💭 Сон"></textarea>
+        <textarea id="editNote" rows="3" placeholder="📝 Нотатка"></textarea>
+        <button type="button" class="save-sleep" id="saveEdit">
+          Зберегти зміни
+        </button>
+        <button type="button" class="close-modal danger" id="deleteEdit">
+          Видалити запис
+        </button>
+        <button type="button" class="close-modal" id="closeEdit">
+          Закрити
+        </button>
+      </div>
+    </div>
+    <script src="../js/common.js"></script>
+    <script src="../js/history.js"></script>
+  </body>
+</html>

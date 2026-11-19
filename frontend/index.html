@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Somnia</title>
+    <script>
+      document.documentElement.dataset.theme =
+        localStorage.getItem("theme") || "light";
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/forms.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- Бокове меню (на ноутбуці завжди видно, на телефоні виїжджає) -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <span class="sidebar-moon">🌙</span>
+          <div>
+            <h2>SOMNIA</h2>
+            <p>TRACKER</p>
+          </div>
+        </div>
+        <nav>
+          <a href="./index.html" class="active">🏠 Головна</a>
+          <a href="./pages/calendar.html">📅 Календар</a>
+          <a href="./pages/analytics.html">📊 Статистика</a>
+          <a href="./pages/goals.html">🎯 Цілі</a>
+          <a href="./pages/dreams.html">📝 Нотатки</a>
+          <a href="./pages/history.html">📖 Історія</a>
+          <a href="./pages/settings.html">⚙️ Налаштування</a>
+          <a href="./pages/profile.html">👤 Профіль</a>
+        </nav>
+      </aside>
+      <div class="overlay" id="overlay"></div>
+
+      <div class="page">
+        <header class="header">
+          <button class="menu-button" aria-label="Меню">✨</button>
+          <div class="logo">
+            <h1>SOMNIA</h1>
+            <p>TRACKER</p>
+          </div>
+          <a
+            href="./pages/profile.html"
+            class="profile-button"
+            aria-label="Профіль"
+            style="display: flex; align-items: center; justify-content: center"
+            >👩</a
+          >
+        </header>
+
+        <main>
+          <section class="welcome-section">
+            <h2 id="greeting">Добрий вечір 💜</h2>
+            <p class="date-chip" id="currentDate">📅 2 липня 2026</p>
+          </section>
+
+          <section class="sleep-card">
+            <div class="sleep-image">🌙</div>
+
+            <div class="sleep-info">
+              <p class="label">Тривалість минулого сну</p>
+              <h1 id="mainDuration">---</h1>
+              <div class="rating" id="mainRating">⭐⭐⭐⭐⭐</div>
+              <p class="mood" id="mainMood">😊</p>
+            </div>
+
+            <button type="button" class="sleep-side" id="addSleepButton">
+              <span class="cloud">☁️</span>
+              <span>➕ Додати сон</span>
+            </button>
+
+            <button type="button" class="sleep-button" id="sleepButton">
+              <span class="button-icon">🌙</span>
+              <span id="buttonText">Почати сон</span>
+            </button>
+
+            <div class="sleep-timer" id="sleepTimer">
+              😴 Сон ще не розпочато
+            </div>
+          </section>
+
+          <p class="quote">✨ Кожен хороший сон — крок до кращого тебе 💜</p>
+
+          <section class="stats-section">
+            <div class="stat-card">
+              <div class="icon">⏰</div>
+              <p>Загальна тривалість</p>
+              <h2 id="totalSleep">---</h2>
+              <small>за місяць</small>
+            </div>
+            <div class="stat-card">
+              <div class="icon">🎯</div>
+              <p>Днів з ціллю</p>
+              <h2 id="goalDays">---</h2>
+              <small>за місяць</small>
+            </div>
+            <div class="stat-card">
+              <div class="icon">☁️</div>
+              <p>Днів зі снами</p>
+              <h2 id="sleepDays">---</h2>
+              <small>за місяць</small>
+            </div>
+            <div class="stat-card">
+              <div class="icon">📈</div>
+              <p>Середній сон</p>
+              <h2 id="averageSleep">---</h2>
+              <small>за місяць</small>
+            </div>
+          </section>
+
+          <section class="bottom-section">
+            <div class="record-card">
+              <h2>📝 Останній запис <span class="arrow">›</span></h2>
+              <p class="record-date" id="lastDate">---</p>
+              <div class="record-time" id="lastTime">---</div>
+              <p id="lastDuration">🕐 ---</p>
+              <div class="rating" id="lastRating">⭐⭐⭐⭐⭐</div>
+              <p id="lastMood">😊</p>
+              <div class="chips" id="lastChips"></div>
+              <button class="record-button" id="openLastRecord">
+                Відкрити запис
+              </button>
+            </div>
+
+            <div class="goal-card">
+              <h2>🎯 Моя ціль сну</h2>
+              <div class="goal-body">
+                <div class="goal-circle" id="goalCircle">8 год.</div>
+                <div class="goal-text">
+                  <p id="goalLabel">Остання ніч</p>
+                  <span class="badge" id="goalBadge">✅ Ціль виконана</span>
+                  <p>Щоденна ціль</p>
+                  <strong id="goalValue">8 год</strong>
+                </div>
+              </div>
+              <a href="./pages/goals.html" class="record-button"
+                >Редагувати ціль</a
+              >
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <!-- Нижня навігація (тільки на телефоні) -->
+    <nav class="bottom-nav">
+      <a href="./index.html" class="active"><span>🏠</span>Головна</a>
+      <a href="./pages/calendar.html"><span>📅</span>Календар</a>
+      <button type="button" class="plus" id="bottomAdd">➕</button>
+      <a href="./pages/analytics.html"><span>📊</span>Статистика</a>
+      <a href="./pages/settings.html"><span>⚙️</span>Налаштування</a>
+    </nav>
+
+    <!-- Модальне вікно ручного додавання -->
+    <div class="modal" id="manualSleepModal">
+      <div class="modal-content">
+        <h2>✍️ Додати запис</h2>
+        <label for="manualDate">Дата</label>
+        <input type="date" id="manualDate" />
+        <label for="manualStart">Початок сну</label>
+        <input type="time" id="manualStart" />
+        <label for="manualEnd">Кінець сну</label>
+        <input type="time" id="manualEnd" />
+        <div class="rating-select">
+          <p>Оцініть сон</p>
+          <div class="stars" id="manualRating">
+            <span data-rating="1">⭐</span><span data-rating="2">⭐</span
+            ><span data-rating="3">⭐</span><span data-rating="4">⭐</span
+            ><span data-rating="5">⭐</span>
+          </div>
+        </div>
+        <div class="mood-select">
+          <p>Самопочуття</p>
+          <div class="moods" id="manualMoods">
+            <button type="button" data-mood="😊">😊</button>
+            <button type="button" data-mood="😄">😄</button>
+            <button type="button" data-mood="😐">😐</button>
+            <button type="button" data-mood="😴">😴</button>
+            <button type="button" data-mood="😣">😣</button>
+          </div>
+        </div>
+        <textarea id="manualDream" rows="3" placeholder="💭 Сон"></textarea>
+        <textarea id="manualNote" rows="3" placeholder="📝 Нотатка"></textarea>
+        <button class="save-sleep" id="saveManualSleep">Зберегти</button>
+        <button type="button" class="close-modal" id="closeManualModal">
+          Закрити
+        </button>
+      </div>
+    </div>
+
+    <!-- Модальне вікно завершення сну -->
+    <div class="modal" id="sleepModal">
+      <div class="modal-content">
+        <h2>🌙 Сон завершено</h2>
+        <p class="modal-duration" id="modalDuration">Ви спали 0 год 0 хв</p>
+        <div class="rating-select">
+          <p>Оцініть сон</p>
+          <div class="stars" id="ratingStars">
+            <span data-rating="1">⭐</span><span data-rating="2">⭐</span
+            ><span data-rating="3">⭐</span><span data-rating="4">⭐</span
+            ><span data-rating="5">⭐</span>
+          </div>
+        </div>
+        <div class="mood-select">
+          <p>Як почуваєтесь?</p>
+          <div class="moods">
+            <button type="button" data-mood="😊">😊</button>
+            <button type="button" data-mood="😄">😄</button>
+            <button type="button" data-mood="😐">😐</button>
+            <button type="button" data-mood="😴">😴</button>
+            <button type="button" data-mood="😣">😣</button>
+          </div>
+        </div>
+        <textarea
+          id="dreamInput"
+          placeholder="💭 Щось снилося?"
+          rows="4"
+        ></textarea>
+        <textarea id="noteInput" placeholder="📝 Нотатка" rows="4"></textarea>
+        <button class="save-sleep" id="saveSleep">Зберегти</button>
+        <button type="button" class="close-modal">Закрити</button>
+      </div>
+    </div>
+
+    <!-- Перегляд запису -->
+    <div class="modal" id="recordModal">
+      <div class="modal-content">
+        <h2>📖 Запис про сон</h2>
+        <p id="viewDate"></p>
+        <p id="viewTime"></p>
+        <p id="viewDuration"></p>
+        <p id="viewRating"></p>
+        <p id="viewMood"></p>
+        <p id="viewDream"></p>
+        <p id="viewNote"></p>
+        <button class="close-modal" id="closeRecordModal">Закрити</button>
+      </div>
+    </div>
+
+    <script src="./js/common.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
