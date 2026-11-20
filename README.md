@@ -64,3 +64,4 @@ uvicorn app.main:app --reload
 | `COOKIE_SECURE` | `1`, якщо сайт відкривається через https |
 
 ## Команда
+- Ксенія Понька: Team Lead
