@@ -62,3 +62,5 @@ uvicorn app.main:app --reload
 | --- | --- |
 | `DATABASE_PATH` | шлях до файлу бази, наприклад `/data/somnia.db` |
 | `COOKIE_SECURE` | `1`, якщо сайт відкривається через https |
+
+## Команда
