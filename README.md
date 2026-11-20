@@ -30,7 +30,6 @@
 Потрібен Python 3.10 або новіший.
 
 ```bash
-cd backend
 python -m venv venv
 # Windows (PowerShell):
 .\venv\Scripts\Activate.ps1
@@ -38,6 +37,8 @@ python -m venv venv
 # source venv/bin/activate
 
 pip install -r requirements.txt
+
+cd backend
 uvicorn app.main:app --reload
 ```
 
